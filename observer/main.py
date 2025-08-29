@@ -1,3 +1,6 @@
+from Subject import WeatherData
+from displays import CurrentConditionsDisplay, StatisticsDisplay, ForecastDisplay
+
 def main():
     weather_data = WeatherData()
 
@@ -15,9 +18,9 @@ def main():
     weather_data.set_measurements(25.5, 90, 29.2)
 
     # Ejemplo de desregistro (opcional)
-    # print("\n--- Forecast display unsubscribed ---")
-    # weather_data.remove_observer(forecast_display)
-    # weather_data.set_measurements(28.0, 88, 30.0)
+    print("\n--- Forecast display unsubscribed ---")
+    weather_data.remove_observer(forecast_display)
+    weather_data.set_measurements(28.0, 88, 30.0)
 
 if __name__ == "__main__":
     main()

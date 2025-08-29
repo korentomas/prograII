@@ -1,3 +1,6 @@
+from clases_base_abstractas import Observer, DisplayElement
+from Subject import WeatherData
+
 class CurrentConditionsDisplay(Observer, DisplayElement):
     def __init__(self, weather_data: WeatherData):
         self._temperature = 0.0
@@ -5,9 +8,9 @@ class CurrentConditionsDisplay(Observer, DisplayElement):
         self._weather_data = weather_data # Mantiene una referencia al sujeto
         weather_data.register_observer(self)
 
-    def update(self, temperature: float, humidity: float, pressure: float):
-        self._temperature = temperature
-        self._humidity = humidity
+    def update(self):
+        self._temperature = self._weather_data.get_temperature()
+        self._humidity = self._weather_data.get_humidity()
         self.display()
 
     def display(self):
@@ -22,7 +25,8 @@ class StatisticsDisplay(Observer, DisplayElement):
         self._weather_data = weather_data
         weather_data.register_observer(self)
 
-    def update(self, temperature: float, humidity: float, pressure: float):
+    def update(self):
+        temperature = self._weather_data.get_temperature()
         self._temp_sum += temperature
         self._num_readings += 1
         self._max_temp = max(self._max_temp, temperature)
@@ -40,9 +44,9 @@ class ForecastDisplay(Observer, DisplayElement):
         self._weather_data = weather_data
         weather_data.register_observer(self)
 
-    def update(self, temperature: float, humidity: float, pressure: float):
+    def update(self):
         self._last_pressure = self._current_pressure
-        self._current_pressure = pressure
+        self._current_pressure = self._weather_data.get_pressure()
         self.display()
 
     def display(self):
@@ -54,4 +58,3 @@ class ForecastDisplay(Observer, DisplayElement):
         elif self._current_pressure < self._last_pressure:
             forecast = "Watch out for cooler, rainy weather"
         print(f"Forecast: {forecast}")
-
