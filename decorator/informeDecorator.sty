@@ -1,0 +1,5 @@
+El tamaño de la bebida (_size) se propaga a través de los decoradores mediante el método get_size(). Que es originario de Beverage.
+Asegurando que todos los condimentos puedan calcular correctamente su costo adicional según el tamaño.
+Solamente esta implementado en el decorador Soy, pero puede ser fácilmente extendido a otros decoradores si hace falta.
+Con respecto a la suma de totales, cada decorador suma su costo al de la bebida que envuelve. En el caso de Soy, el costo se le suma un costo que depende del tamaño de la bebida.
+Se realizaron diferentes tipos de pedidos en el main para verificar que el sistema funcione correctamente.Tambien se realizaron pruebas usando pytest en un nuevo archivo llamado "tests" en el cual, se verificaron los costos calculados de forma automatica y manual
