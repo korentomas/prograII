@@ -15,9 +15,38 @@ class Pizza(ABC):
 
 class NYStyleCheesePizza(Pizza):
     def __init__(self):
-        self.name="NY Style Sauce & Cheese"; self.toppings=["Reggiano cheese"]
+        self.name="NY Style Sauce & Cheese"
+        self.toppings=["Reggiano cheese"]
+
+class NYStyleVeggiePizza(Pizza):
+    def __init__(self):
+        self.name="NY Style Veggie"
+        self.toppings=["Carrots","Onions","Mushrooms"]
+
+class NYStylePepperoniPizza(Pizza):
+    def __init__(self):
+        self.name="NY Style Pepperoni"
+        self.toppings=["Pepperoni"]
 
 class ChicagoStyleCheesePizza(Pizza):
     def __init__(self):
-        self.name="Chicago Style Deep Dish Cheese"; self.toppings=["Shredded Mozzarella"]
-    def cut(self): print("Cutting the pizza into square slices")
+        self.name="Chicago Style Deep Dish Cheese"
+        self.toppings=["Shredded Mozzarella"]
+    def cut(self):
+        print("Cutting the pizza into square slices")
+
+class ChicagoStyleVeggiePizza(Pizza):
+    def __init__(self):
+        self.name="Chicago Style Veggie"
+        self.toppings=["Carrots","Onions","Mushrooms"]
+
+    def cut(self):
+        print("Cutting the pizza into square slices")
+
+class ChicagoStylePepperoniPizza(Pizza):
+    def __init__(self):
+        self.name="Chicago Style Pepperoni"
+        self.toppings=["Pepperoni"]
+
+    def cut(self):
+        print("Cutting the pizza into square slices")
